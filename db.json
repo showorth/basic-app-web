@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "name": "Stephanie",
+      "date": "Aug 23",
+      "comment": "Bacon ipsum dolor amet porchetta picanha kevin, ham tongue ball tip hamburger bacon biltong capicola. Pastrami pig picanha shankle frankfurter porchetta cupim pork chop t-bone pork loin tongue andouille bresaola. Buffalo tri-tip prosciutto tongue kevin tail drumstick landjaeger pork chop meatloaf. Kevin pork loin pig ham brisket, ground round turkey frankfurter. Drumstick brisket filet mignon t-bone short loin cow turducken."
+    },
+
+    {
+      "id": 2,
+      "name": "Daniel",
+      "date": "Aug 23",
+      "comment": "Filet mignon brisket chicken, kielbasa pork chop swine pork rump leberkas shank ball tip capicola short loin cupim buffalo. Ground round pork belly ball tip tongue, pork loin jerky buffalo biltong salami. Spare ribs andouille drumstick, turkey pork belly buffalo prosciutto venison brisket shankle t-bone. Pork hamburger frankfurter leberkas strip steak shank landjaeger meatball doner. Swine venison bacon beef tri-tip hamburger."
+    },
+
+    {
+      "id": 3,
+      "name": "Reggie",
+      "date": "Aug 24",
+      "comment": "Tri-tip tail ham hock tenderloin. Pastrami beef ribs tail kielbasa, fatback picanha corned beef ground round. Prosciutto brisket beef, ham hock hamburger sausage short loin sirloin fatback doner t-bone jowl chicken. Salami tri-tip corned beef, pork loin jerky beef meatball ham brisket pork belly alcatra bacon landjaeger. Turducken doner biltong ground round jowl salami spare ribs chicken andouille. Jowl chicken pork loin tenderloin, swine fatback pancetta turducken beef sausage leberkas tongue tail."
+    }
+  ],
+  "profile": {
+    "name": "stephanie"
+  }
+}
