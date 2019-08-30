@@ -3,10 +3,11 @@ const API_ENDPOINT = 'http://localhost:3001/';
 
 const axios = require('axios');
 
-const getRequest = (route) => {
+const getRequest = async (route) => {
   const endpoint = API_ENDPOINT + route;
-  return axios.get(endpoint)
+  return await axios.get(endpoint)
   .then(function (response) {
+    console.log('Got a response')
     return response.data;
   })
   .catch(function (error) {
@@ -17,9 +18,9 @@ const getRequest = (route) => {
   });
 }
 
-const postRequest = (route, body) => {
+const postRequest = async (route, body) => {
   const endpoint = API_ENDPOINT + route;
-  return axios.post(endpoint, body)
+  return await axios.post(endpoint, body)
   .then(function (response) {
     return response.data;
   })

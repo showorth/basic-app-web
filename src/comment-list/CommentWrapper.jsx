@@ -3,6 +3,7 @@ import { Button, Layout } from 'antd';
 import CommentTable from './CommentTable';
 import AxiosApiClient from '../AxiosApiClient';
 import './CommentWrapper.scss'
+import { Link } from 'react-router-dom'
 
 const { Content } = Layout;
 
@@ -27,9 +28,9 @@ export class CommentWrapper extends Component {
         });
     };
 
-    onButtonClick = async () => {
+    onButtonClick = () => {
 
-        const result = await AxiosApiClient.getRequest('comments');
+        const result = AxiosApiClient.getRequest('comments');
         this.setState({
             commentList: this.mapResponsetoState(result)
         });
@@ -44,6 +45,7 @@ export class CommentWrapper extends Component {
         return (
             <div className="comment-wrapper">
                 <Layout>
+                <Link to='/comment-list-redux'>Redux Comment List</Link>
                     <Content style={{ padding: '50px' }}>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <h1 className="header-alignment">Comments</h1>
