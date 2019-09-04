@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import React, { Component } from 'react';
 import CommentWrapper from './comment-list/CommentWrapper';
 import CommentListRedux from './comment-list-redux/CommentListRedux';
+import CommentListHooks from './comment-list-hooks/CommentListHooks';
 
 
 
@@ -15,6 +16,7 @@ export class Router extends Component {
                     <Switch>
                         <Route exact path='/comment-list' component={CommentWrapper} />
                         <Route exact path='/comment-list-redux' component={CommentListRedux} />
+                        <Route exact path='/comment-list-hooks' component={CommentListHooks} />
                     </Switch>
                 </BrowserRouter>
             </div>

@@ -19,7 +19,7 @@ export class CommentListRedux extends Component {
         return (
             <div className="comment-wrapper">
                 <Layout>
-                    <Link to='/comment-list-redux'>Redux Comment List</Link>
+                    <Link to='/comment-list'>Comment List</Link>
                     <Content style={{ padding: '50px' }}>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <h1 className="header-alignment">Comments</h1>

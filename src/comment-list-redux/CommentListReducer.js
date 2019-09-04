@@ -17,7 +17,6 @@ const commentListReducer = (state = initialState, { type, payload }) => {
         ...state,
         commentList,
       };
-      console.log("New State is", commentList)
       return newState;
     }
     default:

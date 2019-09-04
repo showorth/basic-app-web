@@ -28,9 +28,9 @@ export class CommentWrapper extends Component {
         });
     };
 
-    onButtonClick = () => {
+    onButtonClick = async () => {
 
-        const result = AxiosApiClient.getRequest('comments');
+        const result = await AxiosApiClient.getRequest('comments');
         this.setState({
             commentList: this.mapResponsetoState(result)
         });

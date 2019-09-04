@@ -2,6 +2,9 @@ import { combineReducers } from 'redux';
 
 import commentListReducer from './comment-list-redux/CommentListReducer';
 
-export default combineReducers({
+export const reducerMap = {
   comment: commentListReducer,
-});
+};
+
+export default combineReducers(reducerMap);
+
