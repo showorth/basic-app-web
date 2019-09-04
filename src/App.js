@@ -8,9 +8,9 @@ export class App extends Component {
   render() {
 
     return (
-      <Provider store={store}>
-        <Router />
-      </Provider>
+        <Provider store={store}>
+          <Router />
+        </Provider>
     );
   }
 };

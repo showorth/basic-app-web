@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'antd';
 import './CommentTable.scss'
 
-export class CommentTable extends Component {
+export class CommentTable extends PureComponent {
 
     render() {
 

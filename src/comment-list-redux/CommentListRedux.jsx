@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CommentTable from '../comment-list/CommentTable';
 import { fetchCommentListRequest } from './CommentListActions';
-import '../comment-list/CommentWrapper.scss'
-import { Link } from 'react-router-dom'
+import '../comment-list/CommentWrapper.scss';
+import { CommentHeader } from '../PageHeader';
 
 const { Content } = Layout;
 
 export class CommentListRedux extends Component {
+
+    componentDidMount() {
+        this.props.fetchCommentListRequest();
+    }
 
     render() {
 
@@ -18,11 +22,11 @@ export class CommentListRedux extends Component {
 
         return (
             <div className="comment-wrapper">
-                <Layout>
-                    <Link to='/comment-list'>Comment List</Link>
-                    <Content style={{ padding: '50px' }}>
-                        <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-                            <h1 className="header-alignment">Comments</h1>
+                <Layout className="page-layout">
+                    <CommentHeader currentPage="redux" />
+                    <Content className="content-layout" >
+                        <div className="div-layout">
+                            <h1 className="header-alignment">Comment List Redux</h1>
                             <CommentTable commentList={comment.commentList} />
                             <div className="align-right">
                                 <Button className="button-alignment" type="primary" onClick={this.props.fetchCommentListRequest}>
