@@ -11,15 +11,18 @@ export class CommentTable extends PureComponent {
       {
         title: 'Name',
         dataIndex: 'name',
+        key: 'name',
         width: 150,
       },
       {
         title: 'Date',
         dataIndex: 'date',
+        key: 'date',
         width: 150,
       },
       {
         title: 'Comment',
+        key: 'comment',
         dataIndex: 'comment',
       },
     ];
@@ -27,7 +30,7 @@ export class CommentTable extends PureComponent {
     return (
       <div className="comment-table">
 
-        <Table className="comment-table-display" columns={columns} dataSource={commentList} />
+        <Table className="comment-table-display" columns={columns} dataSource={commentList} rowKey={(r) => r.id} />
 
       </div>
     );
@@ -36,7 +39,7 @@ export class CommentTable extends PureComponent {
 
 CommentTable.propTypes = {
   commentList: PropTypes.arrayOf(PropTypes.shape({
-    key: PropTypes.number,
+    id: PropTypes.number,
     name: PropTypes.string,
     date: PropTypes.string,
     comment: PropTypes.string,

@@ -1,6 +1,7 @@
 import {
-  call, put, takeLatest, all, message,
+  call, put, takeLatest, all,
 } from 'redux-saga/effects';
+import { message } from 'antd';
 import AxiosApiClient from '../AxiosApiClient';
 // import {
 //   setServiceErrorNotification,

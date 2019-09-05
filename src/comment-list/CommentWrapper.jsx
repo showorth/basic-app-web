@@ -18,7 +18,7 @@ export class CommentWrapper extends Component {
 
 
   mapResponsetoState = (apiCommentList = []) => apiCommentList.map((c) => ({
-    key: c.id,
+    id: c.id,
     name: c.name,
     date: c.date,
     comment: c.comment,
