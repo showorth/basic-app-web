@@ -1,5 +1,5 @@
 import {
-  call, put, takeLatest, all,
+  call, put, takeLatest, all, message,
 } from 'redux-saga/effects';
 import AxiosApiClient from '../AxiosApiClient';
 // import {
@@ -21,7 +21,7 @@ export function* fetchCommentList() {
       put(fetchCommentListSuccess(response)),
     ]);
   } catch (error) {
-    console.log('Error');
+    message.error('Error');
     // yield put(serviceComplete());
   }
 }

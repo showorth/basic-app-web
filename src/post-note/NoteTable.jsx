@@ -4,9 +4,9 @@ import { Table } from 'antd';
 
 export class NoteTable extends Component {
   shouldComponentUpdate(nextProps) {
-    const currentNoteList = this.props.noteList;
+    const { noteList } = this.props;
     const nextNoteList = nextProps.noteList;
-    return currentNoteList.length !== nextNoteList.length;
+    return noteList.length !== nextNoteList.length;
   }
 
   render() {

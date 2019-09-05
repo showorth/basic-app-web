@@ -42,38 +42,41 @@ export class PostNote extends Component {
     };
   }
 
-    onInputChange = ({ target: { value } }) => {
-      this.setState({ inputVal: value });
-    }
+  onInputChange = ({ target: { value } }) => {
+    this.setState({ inputVal: value });
+  }
 
-    onNoteSubmit = () => {
-      const noteObj = {
-        key: this.state.noteList.length,
-        note: this.state.inputVal,
-      };
+  onNoteSubmit = () => {
+    const { noteList, inputVal } = this.state;
 
-      this.setState((previousState) => ({ noteList: [...previousState.noteList].concat(noteObj), inputVal: '' }));
-    }
+    const noteObj = {
+      key: noteList.length,
+      note: inputVal,
+    };
 
-    render() {
-      return (
-        <div>
-          <Layout className="page-layout">
-            <CommentHeader currentPage="notes" />
-            <Content className="content-layout">
-              <div className="div-layout">
-                <h1 className="header-alignment">Note Posts</h1>
-                <TextArea placeholder="Type a Note Here" value={this.state.inputVal} onChange={this.onInputChange} />
-                <ButtonDiv>
-                  <StyleButton type="primary" onClick={this.onNoteSubmit}>Add Note</StyleButton>
-                </ButtonDiv>
-                <NoteTable noteList={this.state.noteList} />
-              </div>
-            </Content>
-          </Layout>
-        </div>
-      );
-    }
+    this.setState((previousState) => ({ noteList: [...previousState.noteList].concat(noteObj), inputVal: '' }));
+  }
+
+  render() {
+    const { inputVal, noteList } = this.state;
+    return (
+      <div>
+        <Layout className="page-layout">
+          <CommentHeader currentPage="notes" />
+          <Content className="content-layout">
+            <div className="div-layout">
+              <h1 className="header-alignment">Note Posts</h1>
+              <TextArea placeholder="Type a Note Here" value={inputVal} onChange={this.onInputChange} />
+              <ButtonDiv>
+                <StyleButton type="primary" onClick={this.onNoteSubmit}>Add Note</StyleButton>
+              </ButtonDiv>
+              <NoteTable noteList={noteList} />
+            </div>
+          </Content>
+        </Layout>
+      </div>
+    );
+  }
 }
 
 export default PostNote;

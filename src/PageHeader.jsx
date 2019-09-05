@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const { Header } = Layout;
 
 function PageHeader(props) {
-  const [current, setCurrent] = useState([props.currentPage]);
+  const { currentPage } = props;
+  const [current, setCurrent] = useState([currentPage]);
 
   const handleClick = (e) => {
     setCurrent([e.key]);

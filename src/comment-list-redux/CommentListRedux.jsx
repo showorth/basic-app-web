@@ -27,7 +27,8 @@ export class CommentListRedux extends Component {
               <h1 className="header-alignment">Comment List Redux</h1>
               <CommentTable commentList={comment.commentList} />
               <div className="align-right">
-                <Button className="button-alignment" type="primary" onClick={this.props.fetchCommentListRequest}>Fetch Comments
+                <Button className="button-alignment" type="primary" onClick={this.props.fetchCommentListRequest}>
+                  Fetch Comments
                 </Button>
               </div>
             </div>

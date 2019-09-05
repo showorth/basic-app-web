@@ -7,4 +7,3 @@ export const reducerMap = {
 };
 
 export default combineReducers(reducerMap);
-
