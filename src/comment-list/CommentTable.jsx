@@ -1,48 +1,46 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'antd';
-import './CommentTable.scss'
+import './CommentTable.scss';
 
 export class CommentTable extends PureComponent {
+  render() {
+    const { commentList } = this.props;
 
-    render() {
+    const columns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        width: 150,
+      },
+      {
+        title: 'Date',
+        dataIndex: 'date',
+        width: 150,
+      },
+      {
+        title: 'Comment',
+        dataIndex: 'comment',
+      },
+    ];
 
-        const { commentList } = this.props;
+    return (
+      <div className="comment-table">
 
-        const columns = [
-            {
-                title: 'Name',
-                dataIndex: 'name',
-                width: 150,
-            },
-            {
-                title: 'Date',
-                dataIndex: 'date',
-                width: 150,
-            },
-            {
-                title: 'Comment',
-                dataIndex: 'comment',
-            },
-        ];
+        <Table className="comment-table-display" columns={columns} dataSource={commentList} />
 
-        return (
-            <div className="comment-table">
-                
-                <Table className="comment-table-display" columns={columns} dataSource={commentList} />
-
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }
 
 CommentTable.propTypes = {
-    commentList: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.number,
-        name: PropTypes.string,
-        date: PropTypes.string,
-        comment: PropTypes.string,
-    }))
+  commentList: PropTypes.arrayOf(PropTypes.shape({
+    key: PropTypes.number,
+    name: PropTypes.string,
+    date: PropTypes.string,
+    comment: PropTypes.string,
+  })).isRequired,
 };
 
 export default CommentTable;

@@ -1,5 +1,5 @@
 const commentListInitialState = () => ({
-  commentList: []
+  commentList: [],
 });
 
 export default commentListInitialState;

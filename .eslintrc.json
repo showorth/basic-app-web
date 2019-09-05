@@ -1,0 +1,39 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "import/no-named-as-default": 0,
+    "import/prefer-default-export": 0,
+    "react/prefer-stateless-function": 0,
+    "react/forbid-prop-types": 0,
+    "class-methods-use-this": 0,
+    
+    "react/jsx-one-expression-per-line": 0,
+    "react/destructuring-assignment": 0,
+    "import/extensions": 2,
+    "jsx-a11y/anchor-is-valid": 0,
+    "no-multiple-empty-lines" : 0,
+    "max-len": [2, {"code": 175, "ignoreUrls": true}],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src/"
+        ]
+      }
+    }
+  },
+  "parser": "babel-eslint"
+}

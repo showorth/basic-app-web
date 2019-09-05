@@ -11,56 +11,54 @@ import { CommentHeader } from '../PageHeader';
 const { Content } = Layout;
 
 export class CommentListRedux extends Component {
+  componentDidMount() {
+    this.props.fetchCommentListRequest();
+  }
 
-    componentDidMount() {
-        this.props.fetchCommentListRequest();
-    }
+  render() {
+    const { comment } = this.props;
 
-    render() {
-
-        const { comment } = this.props;
-
-        return (
-            <div className="comment-wrapper">
-                <Layout className="page-layout">
-                    <CommentHeader currentPage="redux" />
-                    <Content className="content-layout" >
-                        <div className="div-layout">
-                            <h1 className="header-alignment">Comment List Redux</h1>
-                            <CommentTable commentList={comment.commentList} />
-                            <div className="align-right">
-                                <Button className="button-alignment" type="primary" onClick={this.props.fetchCommentListRequest}>
-                                    Fetch Comments
-                                </Button>
-                            </div>
-                        </div>
-                    </Content>
-                </Layout>
-            </div >
-        );
-    }
-};
+    return (
+      <div className="comment-wrapper">
+        <Layout className="page-layout">
+          <CommentHeader currentPage="redux" />
+          <Content className="content-layout">
+            <div className="div-layout">
+              <h1 className="header-alignment">Comment List Redux</h1>
+              <CommentTable commentList={comment.commentList} />
+              <div className="align-right">
+                <Button className="button-alignment" type="primary" onClick={this.props.fetchCommentListRequest}>Fetch Comments
+                </Button>
+              </div>
+            </div>
+          </Content>
+        </Layout>
+      </div>
+    );
+  }
+}
 
 CommentListRedux.propTypes = {
-    comment: PropTypes.shape({
-        commentList: PropTypes.arrayOf(PropTypes.shape({
-            key: PropTypes.number,
-            name: PropTypes.string,
-            date: PropTypes.string,
-            comment: PropTypes.string,
-        }))
-    })
+  comment: PropTypes.shape({
+    commentList: PropTypes.arrayOf(PropTypes.shape({
+      key: PropTypes.number,
+      name: PropTypes.string,
+      date: PropTypes.string,
+      comment: PropTypes.string,
+    })),
+  }).isRequired,
+  fetchCommentListRequest: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-    comment: state.comment,
+const mapStateToProps = (state) => ({
+  comment: state.comment,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-    {
-        fetchCommentListRequest,
-    },
-    dispatch,
+const mapDispatchToProps = (dispatch) => bindActionCreators(
+  {
+    fetchCommentListRequest,
+  },
+  dispatch,
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentListRedux);

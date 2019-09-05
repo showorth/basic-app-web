@@ -9,23 +9,21 @@ import { CommentHeader } from './PageHeader';
 
 
 export class Router extends Component {
-
-    render() {
-
-        return (
-            <div className="Router">
-                <BrowserRouter>
-                    <Switch>
-                        <Route exact path='/' component={CommentHeader} />
-                        <Route exact path='/comment-list' component={CommentWrapper} />
-                        <Route exact path='/comment-list-redux' component={CommentListRedux} />
-                        <Route exact path='/comment-list-hooks' component={CommentListHooks} />
-                        <Route exact path='/post-note' component={PostNote} />
-                    </Switch>
-                </BrowserRouter>
-            </div>
-        );
-    }
-};
+  render() {
+    return (
+      <div className="Router">
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={CommentHeader} />
+            <Route exact path="/comment-list" component={CommentWrapper} />
+            <Route exact path="/comment-list-redux" component={CommentListRedux} />
+            <Route exact path="/comment-list-hooks" component={CommentListHooks} />
+            <Route exact path="/post-note" component={PostNote} />
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
 
 export default Router;

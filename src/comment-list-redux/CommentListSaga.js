@@ -1,7 +1,7 @@
-import AxiosApiClient from '../AxiosApiClient';
 import {
   call, put, takeLatest, all,
 } from 'redux-saga/effects';
+import AxiosApiClient from '../AxiosApiClient';
 // import {
 //   setServiceErrorNotification,
 // } from 'notifications/notificationsActions';
@@ -10,14 +10,13 @@ import {
   fetchCommentListSuccess,
 } from './CommentListActions';
 
-export const apiGetRequest = endpoint => AxiosApiClient.getRequest(endpoint);
+export const apiGetRequest = (endpoint) => AxiosApiClient.getRequest(endpoint);
 
 export function* fetchCommentList() {
   const endpoint = 'comments';
-  
+
   try {
     const response = yield call(apiGetRequest, endpoint);
-    console.log(response);
     yield all([
       put(fetchCommentListSuccess(response)),
     ]);

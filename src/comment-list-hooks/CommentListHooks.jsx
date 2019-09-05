@@ -9,43 +9,38 @@ import FetchApiClient from '../FetchApiClient';
 const { Content } = Layout;
 
 function CommentListHooks() {
-
   const [commentList, setCommentList] = useState([]);
 
   useEffect(() => {
     async function fetchComments() {
-
       setCommentList(await FetchApiClient.getRequest('comments'));
-
     }
     fetchComments();
   }, []);
 
   const onButtonClick = async () => {
-
     setCommentList(await FetchApiClient.getRequest('comments'));
-
-  }
+  };
 
   return (
     <div className="comment-wrapper">
       <Layout className="page-layout">
         <CommentHeader currentPage="hooks" />
-        <Content className="content-layout" >
+        <Content className="content-layout">
           <div className="div-layout">
             <h1 className="header-alignment">Comment List Hooks</h1>
             <CommentTable commentList={commentList} />
             <div className="align-right">
               <Button className="button-alignment" type="primary" onClick={onButtonClick}>
                 Fetch Comments
-                </Button>
+              </Button>
             </div>
           </div>
         </Content>
       </Layout>
-    </div >
+    </div>
   );
-};
+}
 
 export default CommentListHooks;
 

@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const { Header } = Layout;
 
 function PageHeader(props) {
+  const [current, setCurrent] = useState([props.currentPage]);
 
-  const [current, setCurrent] = useState([ props.currentPage ]);
-
-
-  const handleClick = e => {
-    console.log('click ', e);
-    setCurrent([ e.key ]);
+  const handleClick = (e) => {
+    setCurrent([e.key]);
   };
 
   return (
@@ -21,22 +19,29 @@ function PageHeader(props) {
       <Menu
         theme="dark"
         mode="horizontal"
-        onClick = {handleClick}
+        onClick={handleClick}
         selectedKeys={current}
         style={{ lineHeight: '64px' }}
       >
         <Menu.Item key="wrapper">
-          <Link to='/comment-list'>Comment List Wrapper</Link>
+          <Link to="/comment-list">Comment List Wrapper</Link>
         </Menu.Item>
         <Menu.Item key="redux">
-          <Link to='/comment-list-redux'>Comment List Redux</Link>
+          <Link to="/comment-list-redux">Comment List Redux</Link>
         </Menu.Item>
-        <Menu.Item key="hooks" >
-          <Link to='/comment-list-hooks'>Comment List Hooks</Link>
+        <Menu.Item key="hooks">
+          <Link to="/comment-list-hooks">Comment List Hooks</Link>
+        </Menu.Item>
+        <Menu.Item key="notes">
+          <Link to="/post-note">Post Note</Link>
         </Menu.Item>
       </Menu>
     </Header>
   );
+}
+
+PageHeader.propTypes = {
+  currentPage: PropTypes.string.isRequired,
 };
 
 export const CommentHeader = React.memo(PageHeader);
