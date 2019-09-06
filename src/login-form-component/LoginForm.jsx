@@ -100,7 +100,7 @@ export class LoginForm extends Component {
                 </Form.Item>
                 <Form.Item className="align-right">
                   <Button type="primary" htmlType="submit" className="login-form-button">
-                    Log in
+                    Submit
                   </Button>
                 </Form.Item>
               </Form>
