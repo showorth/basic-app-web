@@ -39,6 +39,9 @@ function PageHeader(props) {
         <Menu.Item key="context">
           <Link to="/context">Comment Context Response</Link>
         </Menu.Item>
+        <Menu.Item key="login">
+          <Link to="/login">Register</Link>
+        </Menu.Item>
       </Menu>
     </Header>
   );

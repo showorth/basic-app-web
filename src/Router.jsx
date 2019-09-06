@@ -6,6 +6,7 @@ import CommentListHooks from './comment-list-hooks/CommentListHooks';
 import PostNote from './post-note/PostNote';
 import { CommentHeader } from './PageHeader';
 import ContextList from './context-component/Provider';
+import LoginForm from './login-form-component/LoginForm';
 
 
 const Router = () => (
@@ -18,6 +19,7 @@ const Router = () => (
         <Route exact path="/comment-list-hooks" component={CommentListHooks} />
         <Route exact path="/post-note" component={PostNote} />
         <Route exact path="/context" component={ContextList} />
+        <Route exact path="/login" component={LoginForm} />
       </Switch>
     </BrowserRouter>
   </div>
