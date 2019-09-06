@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Layout } from 'antd';
 import { CommentHeader } from '../PageHeader';
-import CommentTable from '../comment-list/CommentTable';
-import '../comment-list/CommentWrapper.scss';
+import CommentTable from '../comment-list-state/CommentTable';
+import '../comment-list-state/CommentWrapper.scss';
 import FetchApiClient from '../FetchApiClient';
 
 

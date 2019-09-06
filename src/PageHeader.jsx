@@ -36,6 +36,9 @@ function PageHeader(props) {
         <Menu.Item key="notes">
           <Link to="/post-note">Post Note</Link>
         </Menu.Item>
+        <Menu.Item key="context">
+          <Link to="/context">Comment Context Response</Link>
+        </Menu.Item>
       </Menu>
     </Header>
   );

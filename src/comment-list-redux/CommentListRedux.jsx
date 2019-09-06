@@ -3,9 +3,9 @@ import { Button, Layout } from 'antd';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import CommentTable from '../comment-list/CommentTable';
+import CommentTable from '../comment-list-state/CommentTable';
 import { fetchCommentListRequest } from './CommentListActions';
-import '../comment-list/CommentWrapper.scss';
+import '../comment-list-state/CommentWrapper.scss';
 import { CommentHeader } from '../PageHeader';
 
 const { Content } = Layout;
