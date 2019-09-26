@@ -1,0 +1,258 @@
+
+Promise - A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it's not resolved
+	- results in a reject or a resolve 
+
+Mutate - To mutate means to change in form or nature
+
+Generator - pauses threads while async actions take place
+
+json stringify does not keep keys that are undefined
+
+JPA Repository Breakdown
+
+https://i.stack.imgur.com/SBx4b.png
+
+yarn - could control dependencies better by locking versions 
+	- similar to npm 
+
+-----------------------------------------------------
+Understand and explain:
+    - What is webpack?
+		"It's a tool that lets you bundle your JavaScript applications (supporting both ESM and CommonJS), and it can be extended to support many different assets such as images, fonts and stylesheets.
+		webpack cares about performance and load times; it's always improving or adding new features, such as async chunk loading and prefetching, to deliver the best possible experience for your project and your users."
+
+    - what is the benefic of create react app
+	
+	
+	Webpack
+	- A program that compiles one JS file into another 
+	- It compiles one file into another 
+	- Module bundling, file minification (reduces file size by removing new line characters, reduces size of variables set, etc.), sass compilation 
+	- Makes developing websites easier and optimizes code 
+	- Pre-webpack days network events had to be organized in a file that references several script tags, requiring several hundred api calls if there are several hundred script tags 
+	- Webpack bundles the file so only one network event is required 
+	- Set up is incredibly tedious and difficult to do 
+	- Pre-webpack example: http://gitsub.solidifi.com/rmtech-consumer/legacy-ui/blob/develop/src/main/webapp/index.html
+	- Program written in node but can be used to generate other projects (Ex: Ruby on Rails)
+	- Web pack bundled file is basically unreadable because the browser does not care about breaking out code in separate files, new line characters or readible variables
+	
+	Summary of Functions:
+	- Bundle Modules 
+	- Use Require 
+	- Compile SASS/SCSS
+	- Minify CSS /JS 
+	- Inline CSS 
+	- Compile ES6 Code 
+	- Lint Code 
+	- Code Splitting
+
+	Create-React-App
+	- Wrapper around webpacks so we don't have to deal with it directly
+	- Takes away the tediousness of webpack set up 
+	- After create-react-app is used, there is a main html file with a script tag - that script tag points to the webpack bundle created by the program 
+-----------------------------------------------------
+scaffold a create react app
+
+NPM - Manages packages but doesn't make life easy executing any.
+NPX - A tool for executing Node packages.
+
+** Requires node to set up
+- npm install -g create-react-app
+- npx create-react-app my-app
+- cd my-app
+- npm start
+-----------------------------------------------------
+What is the difference between
+    - css (Cascading Style Sheets) - sets the presentation of HTML pages by defining the design of each element (font, color, placement, etc.)
+    - sass - Preprocessor of css based on Ruby - expands on css and makes it easier to code (define variables, functions, loops, cases, nesting, etc.)
+    - scss - Another syntax of SASS - more strongly oriented to the standards of CSS (tab and indentation must be positioned correctly to compile) - more verbose than SASS but more closely aligned with CSS 
+		   - Superset of CSS - CSS code will work in SCSS 
+    - less - Preprocess of CSS based on Javascript - logical functions are different - mixins can only be activated in certain situations
+    - which have you used. which would you use in the future?
+	
+less and sass are CSS preprocessors: A CSS preprocessor is a program that lets you generate CSS from the preprocessor's own unique syntax
+
+I have used CSS and SCSS. I like to use SCSS because it is closely aligned with CSS syntax and permits usage of variables.
+
+
+-----------------------------------------------------
+create a json api with json-server
+https://github.com/typicode/json-server
+-----------------------------------------------------
+HTTP Requests: 
+
+GET is used to request data from a specified resource.
+POST is used to send data to a server to create/update a resource.
+PUT is used to send data to a server to update a resource. (entire payload to update)
+PATCH is used to send data to a server to update a resource. (only updates to the data structure)
+HEAD is almost identical to GET, but without the response body.
+DELETE deletes the specified resource.
+OPTIONS describes the communication options for the target resource.
+
+The difference between POST and PUT is that PUT requests are idempotent. That is, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.
+------------------------------------------------------
+
+consume api with axios
+consume api with fetch
+    - display results in a table
+	
+Axios is a Javascript library used to make http requests from node.js or XMLHttpRequests from the browser and it supports the Promise API that is native to JS ES6. Another feature that it has over .fetch() is that it performs automatic transforms of JSON data.
+If you use .fetch() there is a two-step process when handing JSON data. The first is to make the actual request and then the second is to call the .json() method on the response.
+
+- Stream is the response and is converted to a JSON 
+
+FETCH
+- Data is served in a stream and needs to be converted in JSON 
+- Fetch is already built in the browser and does not require a third party library 
+- Possibility for compatibility issues with different browsers 
+
+AXIOS
+- Returns JSON structure and wraps response in a data endpoint 
+- Reliable on all platforms, drawback is that you need a library and that bloats the code, creates a bigger bundle json and is not as fast to load 
+- Axios is a third party library and will not have the same issues with browser compatibility (more consistent response)\
+
+JSX - React specific, allows us to put HTML mixed with js in javascript 
+JS - Separate template for HTML 
+-----------------------------------------------------
+
+- Can eject react app by taking the web packs and customizing them (won't be able to do npm update on that)
+
+"react-app-rewired" script - let's you customize web pack without ejecting create-react-app
+- Can modify web pack, create-react-app and keep versions up 
+-----------------------------------------------------
+setup redux and saga
+    - what does redux do
+    - what does saga do?
+	
+A stateful React component is a JavaScript ES6 class (although I guess it will be no longer the case sooner or later, see React Hooks).
+Every stateful React component carries its own state.
+
+In a React component the state holds up data and the component might render such data to the user.
+
+The state could also change in response to actions and events: in React you can update the local component’s state with setState.
+
+But what is the state anyway? The term state is not tied exclusively to React. State is all around you. Even the simplest JavaScript application has a state. Consider the following example:
+
+
+REDUX
+
+Redux solves a problem that might not be clear in the beginning: it helps giving each React component the exact piece of state it needs.
+Redux holds up the state within a single location.
+Also with Redux the logic for fetching and managing the state lives outside React.This is beneficial for debugging 
+
+What I found is that you should consider using Redux when:
+
+- multiple React components needs to access the same state but do not have any parent/child relationship
+- you start to feel awkward passing down the state to multiple components with props
+
+As you can see from the code above, store is the result of createStore which in turn is a function from the redux library.
+
+createStore takes a reducer as the first argument and in our case we passed in rootReducer.
+
+You may also pass an initial state to createStore which is useful for server side rendering but for now we’re not interested in that.
+
+The most important concept here is that the state in redux comes from reducers. Let’s make it clear: reducers produce the state of your application.
+
+SAGA
+- Redux middleware that intercepts actions on your choosing and implements side effects (typically api calls)
+- A side effect is any application state change that is observable outside the called function other than its return value. 
+-----------------------------------------------------
+create components with hooks
+    -useEffect
+    -useState
+    -UseReducer
+	
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+Anticipate removal of classes 
+
+Use State 
+- Solves for "prop drilling" where you don't have to pass things over and over through deeply nested components
+- Hooks allow you to reuse stateful logic without changing your component hierarchy
+
+Use Effects
+
+You’ve likely performed data fetching, subscriptions, or manually changing the DOM from React components before. We call these operations “side effects” (or “effects” for short) because they can affect other components and can’t be done during rendering.
+
+- Adds the ability to perform side effects from a function component
+- It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API. 
+- When you call useEffect, you’re telling React to run your “effect” function after flushing changes to the DOM
+- useEffect - react runs the effects after every render, including the first - it is similar to component did mount/update
+- Effect returns 
+
+useEffect(yourCallback, []) - will trigger the callback only after the first render.
+
+Detailed explanation
+
+useEffect runs by default after every render of the component (thus causing an effect).
+
+When placing useEffect in your component you tell React you want to run the callback as an effect. React will run the effect after rendering and after performing the DOM updates.
+
+If you pass only a callback - the callback will run after each render.
+
+If passing a second argument (array), React will run the callback after the first render and every time one of the elements in the array is changed. for example when placing useEffect(() => console.log('hello'), [someVar, someOtherVar]) - the callback will run after the first render and after any render that one of someVar or someOtherVar are changed.
+
+By passing the second argument an empty array, React will compare after each render the array and will see nothing was changed, thus calling the callback only after the first render.
+
+https://daveceddia.com/useeffect-hook-examples/
+
+Use Reducer 
+- Cannot link to Saga - anticipate support for suspense in React 17
+
+Rules of Hooks 
+
+- Only call hooks at the top level (not inside loops, conditions or nested functions)
+- Only call from React function components (not JS functions)
+
+-----------------------------------------------------
+
+create a pure component
+create a function component
+create a React.memo funtion (Pure Component as a Function)
+
+Component vs. PureComponent
+
+purecomponent - will only re-render if its inputs change
+component - will always re-render unless you code componentShouldUpdate lifecycle hook
+	- HOC that uses state and has to constantly update 
+	- Benefit of pure component is HOC has a checkbox select should not require the table below to rerender - thus the child component should be pure 
+
+-----------------------------------------------------
+create an es6 component that implements shouldComponentupdate
+	- can identify which props/state should trigger a rerender 
+	- Pure component leverages this to only rerender on change of value 
+create a styled component
+	- one of the last iterations of using css 
+
+CSS-in-JS is a styling approach that abstracts the CSS model to the component level, rather than the document level. This is the idea that CSS can be scoped to a specific component only and as opposed to the document level. The benefits of using CSS-in-JS includes:
+- Reduce the number of HTTP requests: CSS-in-JS would mean that we don't have to make HTTP requests to load assets and resources.
+- Styling Fragmentation: Using CSS-in-JS means you can write styles freely without worrying about compatibility issues.
+-----------------------------------------------------
+context 
+    what is its purpose?
+		- provides a way to pass data without prop drilling 
+    what pain does it specifically address?
+		- parent-child relationships between components to access same props 
+    Create a simple example
+    -provider
+    -intermediate component (trye using above styled component)
+    -consumer
+
+-----------------------------------------------------
+create a form for a userId / password / re-enter password
+    - validate and provide live feedback
+    - password must contain at least 8chars 1 uppercase letter, 1 lowercase letter one number and one special character
+-----------------------------------------------------
+unit tests
+
+https://www.freecodecamp.org/news/testing-react-hooks/
+
+    - unit test a reducer
+    - unit test an es6 component
+    - E2E test a function / hook component
+	
+	
+	Jest is a JavaScript testing framework used to test JavaScript apps and Enzyme is a JavaScript testing utility for React that makes it easier to assert, manipulate, and traverse your React Components’ output.
+-----------------------------------------------------
+
+https://dev.to/drews256/ridiculously-easy-row-and-column-layouts-with-flexbox-1k01
